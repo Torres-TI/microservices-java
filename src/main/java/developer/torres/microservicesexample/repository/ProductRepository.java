@@ -66,7 +66,7 @@ public class ProductRepository {
            throw new InputMismatchException("Product not found");
        }
         deleteProduct(product.getId());
-        createProduct(product);
+        products.add(product);
         return product;
     }
     //#endregion
