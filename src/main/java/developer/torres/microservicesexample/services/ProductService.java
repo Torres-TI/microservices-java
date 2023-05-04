@@ -52,10 +52,12 @@ public class ProductService {
 
     /**
      * Method to update product
+     * @param id to filter products.
      * @param product to be updated.
      * @return product
      */
-    public Product updateProduct(Product product){
+    public Product updateProduct(Integer id,Product product){
+        product.setId(id);
        return productRepository.updateProduct(product);
     }
 
