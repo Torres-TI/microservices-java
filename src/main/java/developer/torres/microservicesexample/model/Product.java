@@ -1,6 +1,5 @@
 package developer.torres.microservicesexample.model;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
 public class Product {
 
     //#region Attributes
@@ -8,7 +7,7 @@ public class Product {
     private String name;
     private Double price;
     private Integer quantity;
-    private String Observation;
+    private String observation;
     //#endregion
 
     //#region Getters and Setters
@@ -45,11 +44,11 @@ public class Product {
     }
 
     public String getObservation() {
-        return Observation;
+        return observation;
     }
 
     public void setObservation(String observation) {
-        Observation = observation;
+        this.observation = observation;
     }
     //#endregion
 }
