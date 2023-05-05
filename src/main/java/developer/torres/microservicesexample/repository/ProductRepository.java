@@ -1,6 +1,7 @@
 package developer.torres.microservicesexample.repository;
 
 import developer.torres.microservicesexample.model.Product;
+import developer.torres.microservicesexample.model.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -63,7 +64,7 @@ public class ProductRepository {
     public Product updateProduct(Product product){
        Optional<Product> hasProduct = getProductById(product.getId());
        if(hasProduct.isEmpty()){
-           throw new InputMismatchException("Product not found");
+           throw new ResourceNotFoundException("Product not found.");
        }
         deleteProduct(product.getId());
         products.add(product);
