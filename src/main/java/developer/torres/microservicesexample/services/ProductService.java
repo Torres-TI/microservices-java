@@ -1,11 +1,11 @@
 package developer.torres.microservicesexample.services;
 
 import developer.torres.microservicesexample.model.Product;
+import developer.torres.microservicesexample.repository.ProductOldRepository;
 import developer.torres.microservicesexample.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +20,7 @@ public class ProductService {
      * @return products
      */
     public List<Product> getAllProducts(){
-        return  productRepository.getAllProducts();
+        return  productRepository.findAll();
     }
 
     /**
@@ -29,7 +29,7 @@ public class ProductService {
      * @return product
      */
     public Optional<Product> getProductById(Integer id){
-       return productRepository.getProductById(id);
+       return productRepository.findById(id);
     }
 
     /**
@@ -39,7 +39,7 @@ public class ProductService {
      * */
 
     public Product createProduct(Product product){
-        return productRepository.createProduct(product);
+        return productRepository.save(product);
     }
 
     /**
@@ -47,7 +47,7 @@ public class ProductService {
      * @param id to delete
      */
     public void deleteProduct(Integer id){
-        productRepository.deleteProduct(id);
+        productRepository.deleteById(id);
     }
 
     /**
@@ -58,7 +58,7 @@ public class ProductService {
      */
     public Product updateProduct(Integer id,Product product){
         product.setId(id);
-       return productRepository.updateProduct(product);
+       return productRepository.save(product);
     }
 
 
